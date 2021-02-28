@@ -1,0 +1,45 @@
+﻿@page
+@model Immigration_Consultant_Booking_Core_Web.Pages.Consultants.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Consultant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Consultant.Id" />
+            <div class="form-group">
+                <label asp-for="Consultant.Name" class="control-label"></label>
+                <input asp-for="Consultant.Name" class="form-control" />
+                <span asp-validation-for="Consultant.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consultant.Email" class="control-label"></label>
+                <input asp-for="Consultant.Email" class="form-control" />
+                <span asp-validation-for="Consultant.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consultant.AgencyId" class="control-label"></label>
+                <select asp-for="Consultant.AgencyId" class="form-control" asp-items="ViewBag.AgencyId"></select>
+                <span asp-validation-for="Consultant.AgencyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
